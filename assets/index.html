@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app='todoApp'>
+	<head>
+		<title>Angular todo apps</title>
+		<meta name='viewport' content='width=device-width,initial-scale=1,maximum-scale=1'>
+		<!--Styles-->
+		<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+		<link rel='stylesheet' href='/styles/bootstrap.css'>
+		<link rel='stylesheet' href='/styles/importer.css'>
+		<!--styles end-->
+		<!--scripts-->
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+		<script src='/js/angular.js'></script>
+		<script src='/js/app.js'></script>
+		<script src='/services/TodoService.js'></script>
+		<script src='/js/dependencies/sails.io.js'></script>
+		<!--scripts end-->
+
+		</head>
+		<body>
+			<div class="container" ng-controller="TodoCtrl">
+  <div class="jumbotron">
+    <h1 align="center">Todo Application</h1>
+    <br>
+    <div id="todo-form" class="row">
+      <div class="col-sm-8 col-sm-offset-2 text-center">
+        <form>
+          <div class="form-group">
+            <input type="text" class="form-control input-lg text-center" placeholder="Add Todo!" ng-model="formData.value">
+            <br>
+            <button type="submit" class="btn btn-primary btn-lg" ng-click="addTodo()">Add Todo</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div id="todo-list" class="row">
+    <div class="col-sm-4 col-sm-offset-4">
+      <div class="checkbox" ng-repeat="todo in todos">
+        <label>
+          <input type="checkbox" ng-click="removeTodo(todo)">
+          {{ todo.value }}
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+		</body>
+
+</html>
